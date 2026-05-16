@@ -43,18 +43,16 @@ public class BindWidget implements IWidget<Bind>, IComponent {
         if (!getDims().collideWithMouse(mouse)) return;
 
         if (binding) {
-            // button 0 (LMB) starts binding mode — don't capture it as a bind
-            // buttons 1+ (RMB, MMB, etc.) are captured as mouse binds
             if (button == 0) {
-                // LMB while already binding: treat as cancel (same as ESC)
+                // LMB while binding = cancel
                 binding = false;
             } else if (button == 1) {
-                // RMB while binding: clear the bind
+                // RMB while binding = clear bind
                 getValue().setKey(-1);
                 getValue().setIsMouse(false);
                 binding = false;
             } else {
-                // MMB / extra buttons: bind them
+                // MMB / extra buttons = bind to that mouse button
                 getValue().setKey(button);
                 getValue().setIsMouse(true);
                 binding = false;
@@ -63,10 +61,10 @@ public class BindWidget implements IWidget<Bind>, IComponent {
         }
 
         if (button == 0) {
-            // LMB on widget: enter binding mode
+            // LMB on widget = enter binding mode
             binding = true;
         } else if (button == 1) {
-            // RMB on widget: clear bind
+            // RMB on widget = clear bind
             getValue().setKey(-1);
             getValue().setIsMouse(false);
         }
