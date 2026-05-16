@@ -26,6 +26,7 @@ If you guys think its bad, then cope. Me jqq kelan jaydon and gunther have all b
 ```
 Main Developers:
 Skitttyy
+PWAQWE (fixed mouse bindings)
 0IMAX (kami5)
 Auth:
 bon55
