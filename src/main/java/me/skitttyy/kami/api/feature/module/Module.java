@@ -256,11 +256,18 @@ public class Module extends Feature implements IBindable, IMinecraft
         return bind.getKey();
     }
 
+    // Added: required by IBindable so BindManager can route mouse vs keyboard
+    @Override
+    public boolean isMouse()
+    {
+        return bind.getIsMouse();
+    }
+
     @Override
     public void onKey()
     {
-        if (!bind.getIsMouse())
-            this.toggle();
+        // Fixed: removed the !bind.getIsMouse() check that was blocking mouse triggers
+        this.toggle();
     }
 
 }
